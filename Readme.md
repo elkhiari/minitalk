@@ -118,3 +118,64 @@ int main()
     
 }
 ```
+## Bitwise Operators
+
+
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Operators-In-C.png"/>
+
+### Left Shift and Right Shift Operators
+
+1. The << (left shift) in C or C++ takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift.
+
+example:
+
+```
+    int i = 10; 00001010
+    int j = i << 2; 00101000 => 40
+    printf("%d\n",j); // output : 40
+```
+
+2. The >> (right shift) in C or C++ takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+
+example:
+
+```
+    int i = 10; 00001010
+    int j = i >> 2; 00000010 => 2
+    printf("%d\n",j); // output : 2
+```
+
+### bitwise AND
+
+| X | Y | X & Y |
+| - | - | ----- | 
+| 0 | 0 |   0   | 
+| 0 | 1 |   0   |
+| 1 | 0 |   0   |
+| 1 | 1 |   1   |
+
+example:
+
+```
+    unsigned char a = 5, b = 9;
+    //a = 5(00000101), b = 9(00001001)
+    // a = 00000101
+    // b = 00001001
+    // r = 00000001 = 1
+    printf("a&b = %d\n", a & b);
+
+
+    a = 3;
+    b = 8;
+    // a = 00000011
+    // b = 00001000
+    // r = 00000000 = 0
+    printf("a&b = %d\n", a & b);
+
+    a = 120;
+    b = 110;
+    // a = 01111000
+    // b = 01101110
+    // r = 01101000 = 104
+    printf("a&b = %d\n", a & b);
+```
