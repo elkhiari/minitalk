@@ -1,6 +1,6 @@
 # Minitalk
 
-### process
+## process
 In computing, a process is an instance of a running program. It is an executing instance of a computer program that has a unique process identifier (PID) and consists of program code, data, and system resources, such as CPU time, memory, and input/output (I/O) operations.
 
 Every program that runs on a computer creates one or more processes. A process can be a single-threaded program, or it can be a multi-threaded program with multiple threads of execution. Each process has its own address space, which means that it can only access its own memory and cannot access the memory of other processes.
@@ -32,7 +32,7 @@ int main()
     pid = getpid()
     // getpid() is a function in the C standard library that returns the process identifier (PID) of the current process. It is declared in the unistd.h header file on Unix-based systems, and in the process.h header file on Windows.
 
-    printf("My PID is: %d\n", pid); // pid of process
+    printf("My PID is: %d\n", pid); // output : My PID is: 5040 
     while(1);
 }
 ```
