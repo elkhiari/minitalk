@@ -21,6 +21,7 @@ The PID is a unique identifier for a process within the context of the operating
 Processes can be identified by their PID using system tools like ps (process status) on Unix-based systems or Task Manager on Windows. These tools can display information about each process running on the system, such as its name, PID, status, CPU and memory usage, and more.
 
 Example :
+
 ```
 #include<signal.h>
 #include<stdio.h>
@@ -28,13 +29,13 @@ Example :
 
 int main()
 {
-    pid_t pid; 
+    pid_t pid;
     //pid_t is a data type defined in the C standard library that is used to represent a process identifier (PID). It is an integer type that is usually defined as a signed 32-bit or 64-bit integer, depending on the operating system.
 
     pid = getpid()
     // getpid() is a function in the C standard library that returns the process identifier (PID) of the current process. It is declared in the unistd.h header file on Unix-based systems, and in the process.h header file on Windows.
 
-    printf("My PID is: %d\n", pid); // output : My PID is: 5040 
+    printf("My PID is: %d\n", pid); // output : My PID is: 5040
     while(1);
 }
 ```
@@ -75,6 +76,7 @@ Example :
 Both usleep() and sleep() are functions that are used to pause the execution of a program for a certain amount of time. The main difference between them is the units of time that they accept.
 
 usleep() is a function that is used to pause the execution of a program for a specified number of microseconds. The syntax for usleep() is:
+
 ```
 #include <unistd.h>
 
@@ -82,6 +84,7 @@ int usleep(useconds_t microseconds);
 ```
 
 example:
+
 ```
 #include<stdio.h>
 #include <unistd.h>
@@ -96,6 +99,7 @@ int main()
 ```
 
 sleep() is a function that is used to pause the execution of a program for a specified number of seconds. The syntax for sleep() is:
+
 ```
 #include <unistd.h>
 
@@ -103,6 +107,7 @@ unsigned int sleep(unsigned int seconds);
 ```
 
 example:
+
 ```
 #include<stdio.h>
 #include <unistd.h>
@@ -115,11 +120,11 @@ int main()
         printf("%d\n",i++);
         sleep(2);
     }
-    
+
 }
 ```
-## Bitwise Operators
 
+## Bitwise Operators
 
 <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Operators-In-C.png"/>
 
@@ -135,7 +140,7 @@ example:
     printf("%d\n",j); // output : 40
 ```
 
-2. The >> (right shift) in C or C++ takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+2. The >> (right shift) in C or C++ takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift.
 
 example:
 
@@ -147,12 +152,12 @@ example:
 
 ### bitwise AND
 
-| X | Y | X & Y |
-| - | - | ----- | 
-| 0 | 0 |   0   | 
-| 0 | 1 |   0   |
-| 1 | 0 |   0   |
-| 1 | 1 |   1   |
+| X   | Y   | X & Y |
+| --- | --- | ----- |
+| 0   | 0   | 0     |
+| 0   | 1   | 0     |
+| 1   | 0   | 0     |
+| 1   | 1   | 1     |
 
 example:
 
@@ -179,3 +184,13 @@ example:
     // r = 01101000 = 104
     printf("a&b = %d\n", a & b);
 ```
+
+## exit()
+
+exit(int) is a library function that is used to terminate the program and return an exit status to the operating system. The int argument passed to exit() represents the exit status or return code of the program.
+
+The exit status is a value that is returned to the calling process or shell that launched the program. A status code of 0 typically indicates that the program ran successfully, while a non-zero status code indicates that the program encountered an error or some other issue.
+
+The exit() function performs a number of actions before terminating the program. It flushes all open output streams, closes all open files, and calls any functions registered with the atexit() function. Once these actions are completed, the program terminates and control is returned to the operating system.
+
+It's worth noting that the behavior of exit() can be modified by installing a signal handler for the SIGTERM signal. If a signal handler is installed, it will be executed instead of the standard exit() function when the SIGTERM signal is received.
