@@ -12,14 +12,14 @@
 
 #include "minitalk.h"
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	int nbr;
+	int	nbr;
 
 	if (n < 0)
 	{
@@ -36,16 +36,16 @@ void ft_putnbr(int n)
 	ft_putchar(nbr % 10 + '0');
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int j;
-	int nbr;
+	int	i;
+	int	j;
+	int	nbr;
 
 	i = 1;
 	j = 0;
 	nbr = 0;
-	while (str[j] == '32' || (str[j] >= '9' && str[j] <= '13'))
+	while (str[j] == 32 || (str[j] >= 9 && str[j] <= 13))
 		j++;
 	if (str[j] == '-' || str[j] == '+')
 	{

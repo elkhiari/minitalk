@@ -194,3 +194,21 @@ The exit status is a value that is returned to the calling process or shell that
 The exit() function performs a number of actions before terminating the program. It flushes all open output streams, closes all open files, and calls any functions registered with the atexit() function. Once these actions are completed, the program terminates and control is returned to the operating system.
 
 It's worth noting that the behavior of exit() can be modified by installing a signal handler for the SIGTERM signal. If a signal handler is installed, it will be executed instead of the standard exit() function when the SIGTERM signal is received.
+
+
+## Sigaction
+
+sigaction is a function in the C programming language that is used to manipulate and handle signals. A signal is a software interrupt delivered to a process, indicating that an event has occurred, such as the user pressing Ctrl-C or a program encountering a segmentation fault.
+
+sigaction allows the programmer to define a signal handler function that will be called when a particular signal is received by the process. The function prototype for sigaction is:
+
+    int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
+
+The signum parameter is the signal to be handled, and act is a pointer to a structure of type struct sigaction that contains the information about how the signal should be handled. The oldact parameter is an optional parameter that allows the programmer to retrieve the previous signal handler information.
+
+The struct sigaction type contains three fields:
+
+sa_handler: a pointer to the signal handler function to be called when the signal is received.
+sa_flags: a set of flags that determine how the signal should be handled. For example, SA_RESTART indicates that system calls interrupted by the signal should be automatically restarted.
+sa_mask: a set of signals that should be blocked while the signal handler is executing. This is used to prevent nested signals from interfering with each other.
+Using sigaction to handle signals is considered to be more robust than using the older signal function, as it provides more control over how signals are handled, and can prevent race conditions that may occur when using signal.

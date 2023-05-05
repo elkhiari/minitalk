@@ -12,11 +12,11 @@
 
 #include "minitalk.h"
 
-void client(pid_t pid, char *txt)
+void	client(pid_t pid, char *txt)
 {
-	int i;
-	int shift;
-	int nbr;
+	int	i;
+	int	shift;
+	int	nbr;
 
 	i = 0;
 	while (txt[i])
@@ -30,24 +30,22 @@ void client(pid_t pid, char *txt)
 			else
 				kill(pid, SIGUSR2);
 			shift++;
-			usleep(200);
+			usleep(100);
 		}
 		i++;
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	if (argc != 3)
-	{
-		exit (1);
-	}
-	char *txt;
-	pid_t PID;
+	pid_t	pid;
+	char	*txt;
 
-	txt = argv[2];
-	PID = ft_atoi(argv[1]);
-	if (PID <= 0)
+	if (argc != 3)
 		exit (1);
-	client(PID, txt);
+	txt = argv[2];
+	pid = ft_atoi(argv[1]);
+	if (pid <= 0)
+		exit (1);
+	client(pid, txt);
 }
